@@ -22,10 +22,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg
 .cdh{padding:10px 12px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
 .cdh h3{font-size:13px;font-weight:700}
 .cdb{padding:8px 12px;border-top:1px solid var(--bdr);display:none}.cdb.op{display:block}
-.tsk{display:flex;gap:7px;padding:5px 0;cursor:pointer;align-items:flex-start}
+.tsk{display:flex;gap:7px;padding:4px 0;cursor:pointer;align-items:flex-start}
 .cb{width:18px;height:18px;border-radius:4px;border:2px solid var(--sub);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;font-weight:700}
 .cb.ck{background:var(--green);border-color:var(--green)}
-.tt{font-size:12px;line-height:1.5}.tt.ck{color:#94a3b8;text-decoration:line-through}
+.tt{font-size:12px;line-height:1.4}.tt.ck{color:#94a3b8;text-decoration:line-through}
 .tm{font-size:9px;color:var(--sub);background:#f1f5f9;border-radius:4px;padding:1px 5px;white-space:nowrap;flex-shrink:0;margin-top:2px}
 .dlr{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid #f1f5f9}
 .dlr.p{opacity:.3}
@@ -34,369 +34,239 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg
 .stn{font-size:20px;font-weight:800}.stl{font-size:10px}
 .tbl{width:100%;border-collapse:collapse;font-size:11px}.tbl th,.tbl td{border:1px solid var(--bdr);padding:4px 6px}.tbl th{background:#f1f5f9;font-weight:700}
 .w{background:#fef3c7;border:2px solid var(--org);border-radius:10px;padding:10px;margin-bottom:8px;font-size:12px}
-.rl{border-radius:10px;padding:10px;margin-bottom:8px;font-size:12px;line-height:1.8}
 .ft{text-align:center;padding:14px;color:#cbd5e1;font-size:11px}
-.sb{padding:4px 6px;margin-bottom:3px;border-radius:6px;font-size:12px;display:flex;justify-content:space-between}
+.sb{padding:5px 8px;margin-bottom:3px;border-radius:6px;font-size:12px;display:flex;justify-content:space-between;align-items:center;gap:6px}
 .sm{background:#eff6ff}.st2{background:#fefce8}
-.bk{font-size:11px;padding:4px 0;border-bottom:1px solid #f8fafc;display:flex;justify-content:space-between}
+.bk{font-size:11px;padding:6px 0;border-bottom:1px solid #f1f5f9;display:flex;justify-content:space-between;align-items:center;gap:8px}
 .pri-r .cb{border-color:var(--red)}.pri-p .cb{border-color:var(--pur)}.pri-b .cb{border-color:var(--blue)}.pri-o .cb{border-color:var(--org)}.pri-g .cb{border-color:var(--green)}
-.ph{font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;display:inline-block;margin-bottom:4px}
-.sep{font-size:10px;font-weight:700;color:var(--sub);padding:6px 0 2px;border-bottom:1px dashed var(--bdr);margin:4px 0}
+.ph{font-size:10px;font-weight:700;padding:2px 8px;border-radius:4px;display:inline-block}
+.prio{font-size:9px;font-weight:700;padding:1px 5px;border-radius:3px;white-space:nowrap}
+.pr-c{background:#fef2f2;color:#dc2626}.pr-h{background:#fef3c7;color:#92400e}.pr-n{background:#f1f5f9;color:#64748b}
+.drem{font-size:20px;font-weight:800;text-align:right}
 </style>
 </head>
 <body>
 <div id="app"></div>
+
+<script src="plan-i.js"></script>
+<script src="plan-ii.js"></script>
+<script src="plan-iii.js"></script>
+<script src="plan-iv.js"></script>
+
 <script>
 const DL=[
 {d:"2026-04-15",l:"履修登録〆切",c:"#dc2626"},
 {d:"2026-04-30",l:"学納金〆切",c:"#f59e0b"},
-{d:"2026-06-05",l:"I期〆切（M完了+Tレポート必着）",c:"#dc2626"},
+{d:"2026-06-05",l:"I期〆切（M完了+T必着）",c:"#dc2626"},
 {d:"2026-07-04",l:"I期試験(土)A日程",c:"#2563eb"},
 {d:"2026-07-05",l:"I期試験(日)B日程",c:"#2563eb"},
-{d:"2026-08-07",l:"II期〆切（M完了+Tレポート必着）",c:"#dc2626"},
+{d:"2026-08-07",l:"II期〆切（M完了+T必着）",c:"#dc2626"},
 {d:"2026-09-05",l:"II期試験(土)C日程",c:"#059669"},
 {d:"2026-09-06",l:"II期試験(日)D日程",c:"#059669"},
-{d:"2026-11-06",l:"III期〆切（M完了+Tレポート必着）",c:"#7c3aed"},
+{d:"2026-11-06",l:"III期〆切（M完了+T必着）",c:"#7c3aed"},
 {d:"2026-12-05",l:"III期試験(土)B日程",c:"#7c3aed"},
 {d:"2026-12-06",l:"III期試験(日)A日程",c:"#7c3aed"},
-{d:"2027-01-08",l:"IV期〆切（M完了+Tレポート必着）",c:"#dc2626"},
+{d:"2027-01-08",l:"IV期〆切（M完了+T必着）",c:"#dc2626"},
 {d:"2027-02-06",l:"IV期試験(土)D日程",c:"#dc2626"},
 {d:"2027-02-07",l:"IV期試験(日)C日程",c:"#dc2626"},
 {d:"2027-03-21",l:"卒業式",c:"#16a34a"}];
 const dTo=s=>Math.ceil((new Date(s)-new Date())/864e5);
 
+// 期別データ: 優先順位順
+// pri: c=CRITICAL(I期限定/必修), h=HIGH(競合で移動不可), n=NORMAL(リトライ可)
 const PD=[
-{id:1,nm:"I期（7月試験）",c:"#2563eb",u:14,n:7,dl:"6/5",
- m:[["現代世界の政治経済","B1限","毎週2回ペースで進める","15h"],
-    ["オペレーティングシステム","B5限","全公開済・自分のペース・小テストのみ","15h"]],
- t:[["健康支援学","B4限","A+B同時提出可。LMS提出","17h"],
-    ["人間関係論","A3限","テスト2個合格→課題A解禁→A合格→B。LMS提出","17h"],
-    ["オペレーションズリサーチ","A4限","A合格→B。郵送。採点2週〜1ヶ月","17h"],
-    ["社会学","B3限","A合格→B。LMS提出","15h"],
-    ["現代日本史","B2限","A合格→B。LMS提出","15h"]],
- ex:["7/4(土)A 3限 人間関係論","7/4(土)A 4限 OR","7/5(日)B 1限 政治経済","7/5(日)B 2限 現代日本史","7/5(日)B 3限 社会学","7/5(日)B 4限 健康支援学","7/5(日)B 5限 OS"],
- tm:"M2科目30h+T5科目81h=111h÷7.5週≈15h/週（残4h=試験対策）"},
-{id:2,nm:"II期（9月試験）",c:"#059669",u:14,n:7,dl:"8/7",
- m:[["DS・AI入門（必修）","D2限","4月から先行スタート","15h"],
-    ["論理回路","D4限","必須課題全合格","15h"],
-    ["情報システムデザイン","C4限","UML前提","15h"],
-    ["化学１","C6限","毎回課題。高校化学レベル","15h"]],
- t:[["心理学","C2限","教科書2冊","17h"],
-    ["経済学","D1限","LMS教材のみ","15h"],
-    ["数理統計学","C3限","レポート全合格で試験受験可。マセマ本","17h"]],
- ex:["9/5(土)C 2限 心理学","9/5(土)C 3限 数理統計学","9/5(土)C 4限 情報SD","9/5(土)C 6限 化学1","9/6(日)D 1限 経済学","9/6(日)D 2限 DS・AI入門","9/6(日)D 4限 論理回路"],
- tm:"M4科目60h+T3科目49h=109h÷9週≈12h/週（残7h=試験対策）"},
-{id:3,nm:"III期（12月試験）",c:"#7c3aed",u:10,n:5,dl:"11/6",
- m:[["コンピュータアーキテクチャ","B3限","ノート持込可(手書き限定)","15h"],
-    ["幾何学","B4限","ベクトル・座標・行列","15h"],
-    ["自動制御論","A3限","古典制御の基礎","15h"]],
- t:[["画像情報処理","B1限","","17h"],
-    ["ディジタル信号処理","A2限","教科書LMS確認","15h"]],
- ex:["12/5(土)B 1限 画像情報処理","12/5(土)B 3限 CA","12/5(土)B 4限 幾何学","12/6(日)A 2限 ディジタル信号処理","12/6(日)A 3限 自動制御論","＋I期リトライ"],
- tm:"M3科目45h+T2科目32h=77h÷9週≈9h/週（残10h=リトライ余裕大）"},
-{id:4,nm:"IV期（2月試験）",c:"#dc2626",u:8,n:4,dl:"1/8",
- m:[["ロボティクス概論","D1限","教科書は書店予約","15h"],
-    ["生物学１","D6限","LMS資料のみ","15h"],
-    ["情報社会論","C1限","全課題合格必須","15h"]],
- t:[["情報システム","C3限","","15h"]],
- ex:["2/6(土)D 1限 ロボティクス概論","2/6(土)D 6限 生物学1","2/7(日)C 1限 情報社会論","2/7(日)C 3限 情報システム","＋II期リトライ"],
- tm:"M3科目45h+T1科目15h=60h÷9週≈7h/週（残12h=リトライ余裕大）"}
+{id:1,nm:"I期（7月試験）",c:"#2563eb",u:12,n:6,dl:"2026-06-05",exd:"2026-07-04",
+ subj:[
+  {nm:"人間関係論",tp:"T",slot:"A3限",h:"30-45h",pri:"c",note:"テスト2個→A→B / LMS / I期限定"},
+  {nm:"社会学",tp:"T",slot:"B3限",h:"30-45h",pri:"c",note:"A→B / LMS / I期限定"},
+  {nm:"健康支援学",tp:"T",slot:"B4限",h:"30-45h",pri:"c",note:"A+B同時 / LMS / I期限定"},
+  {nm:"現代世界の政治経済",tp:"M",slot:"B1限",h:"25h",pri:"c",note:"毎週2回ペース / I期限定"},
+  {nm:"OS",tp:"M",slot:"B5限",h:"25h",pri:"n",note:"自分のペース / III期リトライ可"},
+  {nm:"OR",tp:"T",slot:"A4限",h:"30-45h",pri:"n",note:"A→B / 郵送 / III期リトライ可 / 課題B後回し可"},
+ ],
+ ex:["7/4(土)A 3限 人間関係論","7/4(土)A 4限 OR","7/5(日)B 1限 政治経済","7/5(日)B 3限 社会学","7/5(日)B 4限 健康支援学","7/5(日)B 5限 OS"],
+ tm:{mN:2,tN:4,min:"M50+T120=170h",max:"M60+T180=240h",avg:"~200h",wk:"27h/週（GW込みで押す）"}},
+{id:2,nm:"II期（9月試験）",c:"#059669",u:12,n:6,dl:"2026-08-07",exd:"2026-09-05",
+ subj:[
+  {nm:"DS・AI入門（必修）",tp:"M",slot:"D2限",h:"25h",pri:"c",note:"必修！4月先行開始"},
+  {nm:"数理統計学",tp:"T",slot:"C3限",h:"30-45h",pri:"h",note:"全合格で受験可 / IV期C3競合"},
+  {nm:"経済学",tp:"T",slot:"D1限",h:"30-45h",pri:"h",note:"LMS教材のみ / IV期D1競合"},
+  {nm:"論理回路",tp:"M",slot:"D4限",h:"25h",pri:"n",note:"課題全合格必須 / IV期リトライ可"},
+  {nm:"情報システムデザイン",tp:"M",slot:"C4限",h:"25h",pri:"n",note:"UML前提 / IV期リトライ可"},
+  {nm:"化学１",tp:"M",slot:"C6限",h:"25h",pri:"n",note:"毎回課題 / IV期リトライ可"},
+ ],
+ ex:["9/5(土)C 3限 数理統計学","9/5(土)C 4限 情報SD","9/5(土)C 6限 化学1","9/6(日)D 1限 経済学","9/6(日)D 2限 DS・AI入門","9/6(日)D 4限 論理回路"],
+ tm:{mN:4,tN:2,min:"M90+T60=150h",max:"M120+T90=210h",avg:"~174h",wk:"19h/週（ギリ）"}},
+{id:3,nm:"III期（12月試験）",c:"#7c3aed",u:12,n:6,dl:"2026-11-06",exd:"2026-12-05",
+ subj:[
+  {nm:"現代日本史",tp:"T",slot:"B2限",h:"30-45h",pri:"h",note:"A→B / I期から移動"},
+  {nm:"画像情報処理",tp:"T",slot:"B1限",h:"30-45h",pri:"h",note:"III期限定"},
+  {nm:"ディジタル信号処理",tp:"T",slot:"A2限",h:"30-45h",pri:"h",note:"III期限定"},
+  {nm:"CA",tp:"M",slot:"B3限",h:"25h",pri:"h",note:"手書きノート持込可 / III期限定"},
+  {nm:"幾何学",tp:"M",slot:"B4限",h:"25h",pri:"h",note:"III期限定"},
+  {nm:"自動制御論",tp:"M",slot:"A3限",h:"25h",pri:"h",note:"III期限定"},
+ ],
+ ex:["12/5(土)B 1限 画像情報処理","12/5(土)B 2限 現代日本史","12/5(土)B 3限 CA","12/5(土)B 4限 幾何学","12/6(日)A 2限 ディジタル信号処理","12/6(日)A 3限 自動制御論","＋I期リトライ(OR/日本史/OS)"],
+ tm:{mN:3,tN:3,min:"M68+T90=158h",max:"M90+T135=225h",avg:"~186h",wk:"21h/週（ちょい超え）"}},
+{id:4,nm:"IV期（2月試験）",c:"#dc2626",u:10,n:5,dl:"2027-01-08",exd:"2027-02-06",
+ subj:[
+  {nm:"心理学",tp:"T",slot:"C2限",h:"30-45h",pri:"h",note:"教科書2冊 / II期から移動"},
+  {nm:"情報システム",tp:"T",slot:"C3限",h:"30-45h",pri:"h",note:"IV期限定"},
+  {nm:"情報社会論",tp:"M",slot:"C1限",h:"25h",pri:"h",note:"全課題合格必須"},
+  {nm:"ロボティクス概論",tp:"M",slot:"D1限",h:"25h",pri:"h",note:"書店予約"},
+  {nm:"生物学１",tp:"M",slot:"D6限",h:"25h",pri:"n",note:"LMSのみ"},
+ ],
+ ex:["2/6(土)D 1限 ロボティクス概論","2/6(土)D 6限 生物学1","2/7(日)C 1限 情報社会論","2/7(日)C 2限 心理学","2/7(日)C 3限 情報システム","＋II期リトライ"],
+ tm:{mN:3,tN:2,min:"M68+T60=128h",max:"M90+T90=180h",avg:"~149h",wk:"17h/週（余裕あり）"}}
 ];
 
 const BK=[
-["社会学","社会学〔第3版〕 有斐閣","9784641054011","~2,600"],
-["健康支援学","新・生き方としての健康科学 有信堂","978-4-8420-6596-0","~2,400"],
-["心理学(1)","心理学研究法 第3版 有斐閣アルマ","978-4-641-22258-8","~2,200"],
-["心理学(2)","増補 オオカミ少女はいなかった 筑摩書房","978-4-480-43269-8","~1,000"],
-["人間関係論","日本語とコミュニケーション 放送大学","978-4595315435","~2,500"],
-["現代日本史","現代日本史（指定教科書）","LMS確認","要確認"],
-["数理統計学","確率統計キャンパスゼミ 改訂8版 マセマ","978-4-86615-315-5","~2,600"],
-["OS","IT Text OS 改訂2版 オーム社","978-4-274-22156-9","~3,200"],
-["情報SD","最新 情報システムの開発 実教出版","978-4-407-30957-7","~2,800"],
-["論理回路","論理回路 コロナ社","978-4-339-01820-2","~3,000"],
-["CA","コンピュータアーキテクチャ 改訂5版 オーム社","978-4-274-22615-1","~3,400"],
-["自動制御論","絵ときでわかる機械制御 第2版 オーム社","978-4-274-22255-9","~3,000"],
-["ロボティクス概論","新訂メカトロニクス 実教出版（書店予約）","978-4-407-36469-9","~2,800"],
-["画像情報処理","ディジタル画像処理 改訂第二版 CG-ARTS","978-4-903474-64-9","~3,800"],
-["情報システム","情報システム基礎 オーム社","978-4-274-203091","~3,000"],
-["化学1","理系のための基礎化学 化学同人","978-4-7598-1055-4","~2,600"],
-["ディジタル信号処理","教科書（LMS確認）","LMS確認","要確認"]
+{nm:"社会学",bk:"社会学〔第3版〕 有斐閣",isbn:"9784641054011",pr:"~2,600",pd:1},
+{nm:"健康支援学",bk:"新・生き方としての健康科学 有信堂",isbn:"978-4-8420-6596-0",pr:"~2,400",pd:1},
+{nm:"心理学(1)",bk:"心理学研究法 第3版 有斐閣アルマ",isbn:"978-4-641-22258-8",pr:"~2,200",pd:4},
+{nm:"心理学(2)",bk:"増補 オオカミ少女はいなかった 筑摩書房",isbn:"978-4-480-43269-8",pr:"~1,000",pd:4},
+{nm:"人間関係論",bk:"日本語とコミュニケーション 放送大学",isbn:"978-4595315435",pr:"~2,500",pd:1},
+{nm:"現代日本史",bk:"現代日本史（指定教科書）",isbn:"LMS確認",pr:"要確認",pd:3},
+{nm:"数理統計学",bk:"確率統計キャンパスゼミ 改訂8版 マセマ",isbn:"978-4-86615-315-5",pr:"~2,600",pd:2},
+{nm:"OS",bk:"IT Text OS 改訂2版 オーム社",isbn:"978-4-274-22156-9",pr:"~3,200",pd:1},
+{nm:"情報SD",bk:"最新 情報システムの開発 実教出版",isbn:"978-4-407-30957-7",pr:"~2,800",pd:2},
+{nm:"論理回路",bk:"論理回路 コロナ社",isbn:"978-4-339-01820-2",pr:"~3,000",pd:2},
+{nm:"CA",bk:"コンピュータアーキテクチャ 改訂5版 オーム社",isbn:"978-4-274-22615-1",pr:"~3,400",pd:3},
+{nm:"自動制御論",bk:"絵ときでわかる機械制御 第2版 オーム社",isbn:"978-4-274-22255-9",pr:"~3,000",pd:3},
+{nm:"ロボティクス概論",bk:"新訂メカトロニクス 実教出版（書店予約）",isbn:"978-4-407-36469-9",pr:"~2,800",pd:4},
+{nm:"画像情報処理",bk:"ディジタル画像処理 改訂第二版 CG-ARTS",isbn:"978-4-903474-64-9",pr:"~3,800",pd:3},
+{nm:"情報システム",bk:"情報システム基礎 オーム社",isbn:"978-4-274-203091",pr:"~3,000",pd:4},
+{nm:"化学1",bk:"理系のための基礎化学 化学同人",isbn:"978-4-7598-1055-4",pr:"~2,600",pd:2},
+{nm:"ディジタル信号処理",bk:"教科書（LMS確認）",isbn:"LMS確認",pr:"要確認",pd:3},
 ];
+const BK_FREE=["現代世界の政治経済","経済学","幾何学","生物学1","DS・AI入門","情報社会論","OR"];
 
-// タスク優先度: r=最優先(赤), o=T科目(橙), b=M科目(青), g=余力(緑), p=試験(紫)
-// 各週内で上から順にやる想定
-const W=[
-// ===== I期 =====
-{w:"4/15",t:"OR投函済+人間関係論テスト着手",c:"#dc2626",ph:"I期開始",tk:[
-["OR 課題A投函（済!）","済","r"],
-["履修登録（済!）","済","r"],
-["人間関係論：LMSテスト1個目に着手","夜1h","r"],
-["教科書の手持ち確認→不足分を注文（進行中）","30分","o"],
-]},
-{w:"4/16-4/23",t:"人間関係論テスト突破→課題A提出",c:"#dc2626",ph:"I期 最優先",tk:[
-["人間関係論：LMSテスト残り→全合格→課題A解禁","夜1-2h","r"],
-["人間関係論：課題A内容確認→教科書読み込み→執筆→LMS提出","夜3日分","r"],
-["LMS全科目の公開状況・課題要件を確認","30分","r"],
-["現代日本史：教科書読み開始（人間関係論の合間に）","通勤","o"],
-["[M] 政治経済 第1-4回（毎週2回ペース）","水金+日","b"],
-["[M] OS 第1-4回（自分のペースで）","月火木の余り","b"],
-["[M] DS・AI入門 第1-2回（II期必修→先行）","木の余り","b"],
-["★日曜夜：M科目の提出漏れチェック","5分","r"],
-]},
-{w:"4/24-4/30",t:"現代日本史課題A提出 + 社会学読み",c:"#f59e0b",ph:"I期 課題A量産",tk:[
-["現代日本史：課題A執筆→LMS提出","夜3日分","r"],
-["社会学：教科書読み開始","通勤+夜","o"],
-["OR 課題Aの合否確認（2週間パターンなら~4/29結果）","随時","o"],
-["人間関係論 課題Aの合否確認→合格なら即課題B着手","随時","r"],
-["[M] 政治経済 第5-8回","水金+日","b"],
-["[M] OS 第5-8回","月火木の余り","b"],
-["[M] DS・AI入門 第3-4回","木の余り","b"],
-["学納金支払い（済!）","済","r"],
-["★日曜夜：M科目の提出漏れチェック","5分","r"],
-]},
-{w:"5/1-5/10 (GW含む)",t:"社会学課題A + 健康支援学A+B同時提出",c:"#f59e0b",ph:"I期 課題A完了",tk:[
-["人間関係論 課題B→LMS提出（A合格済の場合）","夜2-3日","r"],
-["社会学：課題A執筆→LMS提出","夜2-3日","r"],
-["健康支援学：教科書読み→課題A+B同時に執筆→LMS提出","GW集中","o"],
-["OR/現代日本史の合否確認→合格なら課題B計画","随時","o"],
-["[M] 政治経済 第9-12回","水金+日","b"],
-["[M] OS 第9-12回","月火木の余り","b"],
-["[M] DS・AI入門 第5-7回","木の余り","b"],
-["★GWは健康支援学+溜まった課題Bの集中処理に使う","—","r"],
-["★日曜夜：M科目の提出漏れチェック","5分","r"],
-]},
-{w:"5/11-5/24",t:"課題B順次提出 + 不合格即対応",c:"#dc2626",ph:"I期 課題B",tk:[
-["不合格返却があれば最優先で修正→再提出","最優先","r"],
-["OR：課題B執筆→投函（A合格後すぐ）【郵送！】","夜2日+投函","r"],
-["現代日本史：課題B→LMS提出（A合格後すぐ）","夜2日","r"],
-["社会学：課題B→LMS提出（A合格後すぐ）","夜2日","r"],
-["まだ出せてない課題B → 合格通知待ち。来たら即着手","随時","o"],
-["[M] 政治経済 第13-15回→完了","水金","b"],
-["[M] OS 第13-15回→完了","月火木","b"],
-["[M] DS・AI入門 第8-10回","木の余り","b"],
-["【余力】II期：心理学 教科書読み","通勤","g"],
-["【余力】II期：数理統計学 マセマ本読み","通勤","g"],
-["★日曜夜：M科目の提出漏れチェック","5分","r"],
-]},
-{w:"5/25-6/5",t:"【6/5必着】最終確認 + I期M完了",c:"#dc2626",ph:"I期 完了",tk:[
-["未提出の課題Bがあれば全て提出","最優先","r"],
-["不合格返却があれば最優先で修正→再提出","最優先","r"],
-["OR課題Bの郵送は5/31までに投函！（6/5必着）","〆切","r"],
-["[M] 政治経済/OS 全課題完了を確認","確認","b"],
-["6/5：LMSで全科目の受理・合格状況を最終確認","10分","r"],
-["6/5-6/8：I期受験申込み→合格済科目を全て申込","20分","r"],
-]},
-// ===== I期試験対策 + II期開始 =====
-{w:"6/6-6/14",t:"II期M開始 + I期試験対策開始",c:"#2563eb",ph:"I期試験対策+II期",tk:[
-["I期試験対策：人間関係論 教科書+指導書の総復習","夜2日","o"],
-["I期試験対策：OR 筆算練習（試験は手計算！）","日3h","o"],
-["[M] II期開始：論理回路 第1-4回","夜1h","b"],
-["[M] II期開始：情報SD 第1-4回","夜1h","b"],
-["[M] II期開始：化学1 第1-4回","夜1h","b"],
-["[M] DS・AI入門 第11-12回（継続）","木の余り","b"],
-["★日曜夜：M科目の提出漏れチェック","5分","r"],
-]},
-{w:"6/15-7/3",t:"I期試験対策集中 + II期T課題A",c:"#2563eb",ph:"I期試験対策+II期並行",tk:[
-["I期試験対策：健康支援学 専門語+具体例整理","夜1日","o"],
-["I期試験対策：社会学 キーワード整理","夜1日","o"],
-["I期試験対策：現代日本史 論点整理","夜1日","o"],
-["I期試験対策：OS 重要概念復習","夜1日","b"],
-["I期試験対策：政治経済 小テスト振り返り","夜1日","b"],
-["[T] II期：数理統計学 課題A→提出【全合格で試験受験可】","日4h","r"],
-["[T] II期：心理学 課題A→提出","夜2日","o"],
-["[T] II期：経済学 課題A→提出","夜2日","o"],
-["[M] II期：論理回路/情報SD/化学1/DS・AI 継続","各60分","b"],
-["オンライン試験環境テスト（PC/カメラ/LAN/Zoom/PDF）","30分","r"],
-["持込可否をLMSで全科目確認","10分","r"],
-]},
-{w:"7/4-7/5",t:"★ I期試験本番 ★",c:"#2563eb",ph:"I期試験",tk:[
-["7/4(土)A 3限：人間関係論","50分","p"],
-["7/4(土)A 4限：OR","50分","p"],
-["7/5(日)B 1限：現代世界の政治経済","50分","p"],
-["7/5(日)B 2限：現代日本史","50分","p"],
-["7/5(日)B 3限：社会学","50分","p"],
-["7/5(日)B 4限：健康支援学","50分","p"],
-["7/5(日)B 5限：OS","50分","p"],
-["試験でAI使用＝全科目無効＋懲戒処分","—","r"],
-["試験後：手応えメモ→III期リトライ科目を決定","15分","g"],
-]},
-// ===== II期 (詳細はI期課題完了後に更新) =====
-{w:"7/6-8/3",t:"II期：T課題B + M科目追込",c:"#059669",ph:"II期 課題B+M",tk:[
-["不合格返却があれば最優先で修正→再提出","最優先","r"],
-["[T] 数理統計学 課題B→提出【全合格で試験受験可】","日4h","r"],
-["[T] 心理学 課題B→提出（A合格後すぐ）","夜2日","o"],
-["[T] 経済学 課題B→提出（A合格後すぐ）","夜2日","o"],
-["[M] DS・AI/論理回路/情報SD/化学1 追込→完了目指す","週6-7h","b"],
-["I期不合格レポートの再提出","最優先","r"],
-["★8/3までに全提出！8/7必着！","—","r"],
-["★日曜夜：M科目の提出漏れチェック","5分","r"],
-]},
-{w:"8/4-8/10",t:"II期M完了+受験申込",c:"#059669",ph:"II期 完了",tk:[
-["[M] II期M科目4科目を全て完了","各60分","b"],
-["II期受験申込み（LMS）","20分","r"],
-]},
-{w:"8/11-9/4",t:"II期試験対策（7科目）",c:"#059669",ph:"II期 試験対策",tk:[
-["[T] 数理統計学：推定・検定の計算演習","日3h x3","o"],
-["[T] 経済学：LMS教材総復習","夜2日","o"],
-["[T] 心理学：科学的研究法キーワード整理","夜1日","o"],
-["[M] DS・AI入門（必修！）：全コンテンツ復習","日2h","b"],
-["[M] 情報SD：UML+設計プロセス総復習","夜2日","b"],
-["[M] 論理回路：論理代数+組合せ+順序回路の演習","日2h","b"],
-["[M] 化学1：教科書練習問題","夜2日","b"],
-["試験環境の再確認","15分","r"],
-]},
-{w:"9/5-9/6",t:"★ II期試験本番 ★",c:"#059669",ph:"II期 試験",tk:[
-["9/5(土)C 2限：心理学","50分","p"],
-["9/5(土)C 3限：数理統計学","50分","p"],
-["9/5(土)C 4限：情報SD","50分","p"],
-["9/5(土)C 6限：化学1","50分","p"],
-["9/6(日)D 1限：経済学","50分","p"],
-["9/6(日)D 2限：DS・AI入門（必修！）","50分","p"],
-["9/6(日)D 4限：論理回路","50分","p"],
-["試験でAI使用＝全科目無効＋懲戒処分","—","r"],
-["★取得単位の棚卸し→III/IV期調整","30分","g"],
-]},
-// ===== III期 (詳細は後日更新) =====
-{w:"9/7-10/4",t:"III期始動：M開始 + T課題A",c:"#7c3aed",ph:"III期 開始",tk:[
-["[T] 画像情報処理 課題A→提出","日5h","o"],
-["[T] ディジタル信号処理 課題A→提出","夜2日","o"],
-["[M] CA 第1-6回（+自筆ノート作成。手書き限定！）","各60分+日2h","b"],
-["[M] 幾何学 第1-6回","各60分","b"],
-["[M] 自動制御論 第1-6回","各60分","b"],
-["I期不合格科目の再学習+レポート再提出","各夜2日","o"],
-["★日曜夜：M科目の提出漏れチェック","5分","r"],
-]},
-{w:"10/5-11/2",t:"III期：T課題B + M完了",c:"#7c3aed",ph:"III期 課題B+M",tk:[
-["不合格返却があれば最優先で修正→再提出","最優先","r"],
-["[T] 画像情報処理 課題B→提出（A合格後すぐ）","夜2日","o"],
-["[T] ディジタル信号処理 課題B→提出（A合格後すぐ）","夜2日","o"],
-["[M] CA/幾何学/自動制御論 第7-15回→完了","各60分","b"],
-["[M] CA 自筆ノート完成（試験持込用）","日2h x2","b"],
-["★11/2までに全提出！11/6必着！","—","r"],
-["★日曜夜：M科目の提出漏れチェック","5分","r"],
-]},
-{w:"11/3-11/9",t:"III期M完了+受験申込",c:"#7c3aed",ph:"III期 完了",tk:[
-["[M] III期M科目3科目を全て完了","各60分","b"],
-["III期受験申込み（LMS）","20分","r"],
-]},
-{w:"11/10-12/4",t:"III期試験対策（5科目+I期リトライ）",c:"#7c3aed",ph:"III期 試験対策",tk:[
-["[M] CA：教科書+自筆ノート復習（持込可！）","日2h","b"],
-["[M] 幾何学：ベクトル・座標・行列の演習","夜2日","b"],
-["[M] 自動制御論：古典制御の基礎問題","夜2日","b"],
-["[T] 画像情報処理：重要概念整理","夜1日","o"],
-["[T] ディジタル信号処理：重要概念整理","夜1日","o"],
-["I期リトライ科目の試験対策","夜+日","o"],
-["試験環境の再確認","15分","r"],
-]},
-{w:"12/5-12/6",t:"★ III期試験本番 ★",c:"#7c3aed",ph:"III期 試験",tk:[
-["12/5(土)B 1限：画像情報処理","50分","p"],
-["12/5(土)B 3限：CA（教科書+自筆ノート持込可）","50分","p"],
-["12/5(土)B 4限：幾何学","50分","p"],
-["12/6(日)A 2限：ディジタル信号処理","50分","p"],
-["12/6(日)A 3限：自動制御論","50分","p"],
-["＋I期リトライ科目","—","p"],
-["試験でAI使用＝全科目無効＋懲戒処分","—","r"],
-["★残り単位の最終計算→IV期の科目確定","30分","g"],
-]},
-// ===== IV期 (詳細は後日更新) =====
-{w:"12/7-1/4",t:"IV期：M開始 + Tレポート",c:"#dc2626",ph:"IV期 開始",tk:[
-["[T] 情報システム 課題A→提出","日5h","o"],
-["[T] 情報システム 課題B→提出（A合格後すぐ）","夜2日","o"],
-["[M] ロボティクス概論 第1-10回","各60分","b"],
-["[M] 生物学1 第1-10回","各60分","b"],
-["[M] 情報社会論 第1-10回","各60分","b"],
-["II期不合格科目のレポート再提出","各夜2日","o"],
-["★1/4までに全提出！1/8必着！","—","r"],
-["★日曜夜：M科目の提出漏れチェック","5分","r"],
-]},
-{w:"1/5-1/11",t:"IV期M完了+受験申込",c:"#dc2626",ph:"IV期 完了",tk:[
-["[M] IV期M科目3科目を全て完了","各60分","b"],
-["IV期受験申込み（LMS）","20分","r"],
-]},
-{w:"1/12-2/5",t:"IV期試験対策（4科目+II期リトライ）",c:"#dc2626",ph:"IV期 試験対策",tk:[
-["[M] ロボティクス概論：教科書重要概念復習","夜2日","b"],
-["[M] 生物学1：LMS資料総復習","夜1日","b"],
-["[M] 情報社会論：全課題の振り返り","夜1日","b"],
-["[T] 情報システム：重要概念整理","夜1日","o"],
-["II期リトライ科目の試験対策","夜+日","o"],
-["試験環境の最終確認","15分","r"],
-]},
-{w:"2/6-2/7",t:"★ IV期試験 ＝ ラストチャンス ★",c:"#dc2626",ph:"IV期 試験",tk:[
-["2/6(土)D 1限：ロボティクス概論","50分","p"],
-["2/6(土)D 6限：生物学1","50分","p"],
-["2/7(日)C 1限：情報社会論","50分","p"],
-["2/7(日)C 3限：情報システム","50分","p"],
-["＋II期リトライ科目","—","p"],
-["試験でAI使用＝全科目無効＋懲戒処分","—","r"],
-["全て終了→3月卒業認定→3/21 卒業式","—","g"],
-]}
-];
-
-let ck=JSON.parse(localStorage.getItem("gp10")||"{}");
+// --- State ---
+let ck=JSON.parse(localStorage.getItem("gp12")||"{}");
 let vw="plan",os={};
-function sv(){localStorage.setItem("gp10",JSON.stringify(ck))}
+function sv(){localStorage.setItem("gp12",JSON.stringify(ck))}
 function tg(k){ck[k]=!ck[k];sv();rn()}
 function tv(v){vw=v;rn()}
 function ts(k){os[k]=!os[k];rn()}
 const pc={"r":"pri-r","p":"pri-p","b":"pri-b","o":"pri-o","g":"pri-g"};
+const priL={"c":["CRITICAL","pr-c"],"h":["HIGH","pr-h"],"n":["NORMAL","pr-n"]};
+
+// 科目マッチング [検索キー, 表示ラベル]
+const SJ=[
+["政治経済","政経"],["[M] OS","OS"],["DS・AI","DS"],
+["人間関係論","人関"],["OR","OR"],["社会学","社会"],["健康支援学","健支"],
+["論理回路","論理"],["情報SD","情SD"],["化学1","化学"],
+["数理統計","統計"],["経済学","経済"],
+["CA ","CA"],["CA：","CA"],["CA\n","CA"],["幾何学","幾何"],["自動制御","制御"],
+["画像","画像"],["信号処理","信号"],["日本史","日史"],
+["ロボティクス","ロボ"],["生物学","生物"],["情報社会","情社"],
+["情報システム：","情シ"],["情報システム ","情シ"],["心理学","心理"]
+];
+function findSJ(t){for(var i=0;i<SJ.length;i++)if(t.indexOf(SJ[i][0])>=0)return SJ[i][1];return null}
+function parseH(s){if(!s)return 0;var m;if(m=s.match(/(\d+)-(\d+)\s*h/i))return(+m[1]+ +m[2])/2;if(m=s.match(/(\d+(?:\.\d+)?)\s*h/i))return+m[1];if(m=s.match(/(\d+)\s*分/))return+m[1]/60;return 0}
+const SJC={};const PC={"I期":"#2563eb","II期":"#059669","III期":"#7c3aed","IV期":"#dc2626"};
+PD.forEach(p=>p.subj.forEach(s=>{var lb={"オペレーションズリサーチ":"OR","OS":"OS","DS・AI入門（必修）":"DS","コンピュータアーキテクチャ":"CA","情報システムデザイン":"情SD","化学１":"化学","ロボティクス概論":"ロボ","生物学１":"生物","情報社会論":"情社","ディジタル信号処理":"信号","現代日本史":"日史","情報システム":"情シ"}[s.nm]||findSJ(s.nm)||findSJ(s.nm+"：");if(lb)SJC[lb]=p.c}))
 
 function rn(){
 const $=document.getElementById("app");
+const W=[...(window.PLAN_I||[]),...(window.PLAN_II||[]),...(window.PLAN_III||[]),...(window.PLAN_IV||[])];
 const tot=W.reduce((s,w)=>s+w.tk.length,0);
-const dn=Object.values(ck).filter(Boolean).length;
+const dn=W.reduce((s,w,wi)=>s+w.tk.filter((_,ti)=>ck[wi+"-"+ti]).length,0);
 const p=tot>0?Math.round(dn/tot*100):0;
 const nx=DL.find(d=>dTo(d.d)>0);
-let h=`<div class="hd"><div class="hdr"><div><h1>卒業マスタープラン v2</h1><div class="s">21T047 | 23科目46単位（必要44） | M12+T11 | 週19h</div></div><div><div class="pct">${p}%</div><div class="pcts">${dn}/${tot}</div></div></div><div class="bar"><div class="barf" style="width:${p}%"></div></div></div>`;
+
+let h=`<div class="hd"><div class="hdr"><div><h1>卒業マスタープラン v2</h1><div class="s">21T047 | 23科目46単位 | 6/6/6/5 | 週19h（I期はGWで死守）</div></div><div><div class="pct">${p}%</div><div class="pcts">${dn}/${tot}</div></div></div><div class="bar"><div class="barf" style="width:${p}%"></div></div></div>`;
 
 if(nx){h+=`<div class="nxt" style="background:${nx.c}08;border-color:${nx.c}"><div><div style="font-size:10px;color:${nx.c};font-weight:600">次の締切</div><div style="font-size:14px;font-weight:700">${nx.l}</div></div><div style="text-align:right"><div style="font-size:24px;font-weight:800;color:${nx.c}">${dTo(nx.d)}日</div></div></div>`;}
 
 h+=`<div class="tabs">`;
-[["plan","週次"],["dash","概要"],["period","期別"],["exam","試験"],["books","教材"],["rule","ルール"]].forEach(([k,l])=>{
+[["plan","週次"],["dash","概要"],["period","期別"],["exam","試験"],["books","教材"]].forEach(([k,l])=>{
 h+=`<button class="tab ${vw===k?"on":""}" onclick="tv('${k}')">${l}</button>`;});
 h+=`</div>`;
 
+// === 週次 ===
 if(vw==="plan"){
+if(W.length===0){h+=`<div style="padding:20px;text-align:center;color:var(--sub)">週次データを読み込み中...<br>plan-i.js 〜 plan-iv.js が必要です</div>`}
+else{
+// 期別+科目別進捗を計算
+const pMap={},sMap={};
 W.forEach((w,wi)=>{
+const pk=w.ph.replace(/[ 　].*/,"").replace(/完了|試験対策|試験|開始|レポート/g,"").trim();
+if(!pMap[pk])pMap[pk]={tot:0,dn:0,c:w.c};
+pMap[pk].tot+=w.tk.length;
+pMap[pk].dn+=w.tk.filter((_,ti)=>ck[wi+"-"+ti]).length;
+if(!sMap[pk])sMap[pk]={};
+w.tk.forEach((t,ti)=>{
+const sn=findSJ(t[0]);if(!sn)return;
+if(!sMap[pk][sn])sMap[pk][sn]={tot:0,dn:0};
+const hrs=parseH(t[1]);
+sMap[pk][sn].tot+=hrs;
+if(ck[wi+"-"+ti])sMap[pk][sn].dn+=hrs;
+});
+});
+let lastPh="";
+W.forEach((w,wi)=>{
+const pk=w.ph.replace(/[ 　].*/,"").replace(/完了|試験対策|試験|開始|レポート/g,"").trim();
 const wD=w.tk.filter((_,ti)=>ck[wi+"-"+ti]).length;
 const al=wD===w.tk.length;
 const op=os["w"+wi]!==false;
+if(pk!==lastPh&&pMap[pk]){
+const pp=pMap[pk],pPct=pp.tot>0?Math.round(pp.dn/pp.tot*100):0,pc2=PC[pk]||pp.c;
+h+=`<div style="padding:6px 4px;margin:${lastPh?"8px":"0"} 0 4px">`;
+h+=`<div style="display:flex;align-items:center;gap:8px"><div style="font-size:11px;font-weight:700;color:${pc2};white-space:nowrap">${pk}</div><div style="flex:1;background:#e2e8f0;border-radius:4px;height:5px"><div style="width:${pPct}%;background:${pc2};border-radius:4px;height:5px;transition:width .3s"></div></div><div style="font-size:10px;color:var(--sub);white-space:nowrap">${pp.dn}/${pp.tot} (${pPct}%)</div></div>`;
+if(sMap[pk]){
+h+=`<div style="display:flex;flex-wrap:wrap;gap:3px 10px;margin-top:4px">`;
+Object.entries(sMap[pk]).forEach(([sn,sv])=>{
+const sp=sv.tot>0?Math.round(sv.dn/sv.tot*100):0;const sc=SJC[sn]||pp.c;
+h+=`<div style="display:flex;align-items:center;gap:3px;font-size:10px"><span style="font-weight:600;min-width:20px;color:${sc}">${sn}</span><div style="width:30px;background:#e2e8f0;border-radius:2px;height:3px"><div style="width:${sp}%;background:${sc};border-radius:2px;height:3px"></div></div><span style="color:var(--sub)">${sv.dn.toFixed(1)}/${sv.tot.toFixed(1)}h</span></div>`;
+});
+h+=`</div>`}
+h+=`</div>`;
+lastPh=pk;
+}
 h+=`<div class="cd" style="border-color:${al?"#86efac":w.c+"40"}"><div class="cdh" style="background:${al?"#16a34a":w.c};color:#fff" onclick="ts('w${wi}')"><div><h3>${w.t}</h3><div style="font-size:10px;opacity:.8">${w.w} <span class="ph" style="background:rgba(255,255,255,.2)">${w.ph}</span></div></div><div style="font-size:12px;font-weight:700">${wD}/${w.tk.length} ${op?"▼":"▶"}</div></div>`;
 h+=`<div class="cdb ${op?"op":""}">`;
 w.tk.forEach((t,ti)=>{
 const k=wi+"-"+ti,d=!!ck[k],pr=pc[t[2]]||"";
 h+=`<div class="tsk ${pr}" onclick="tg('${k}')"><div class="cb ${d?"ck":""}">${d?"✓":""}</div><span class="tt ${d?"ck":""}">${t[0]}</span><span class="tm">${t[1]}</span></div>`;});
-h+=`</div></div>`;});
+h+=`</div></div>`});}
 }
 
+// === 概要 ===
 if(vw==="dash"){
 h+=`<div class="g4" style="margin-bottom:8px">`;
 PD.forEach(p=>{h+=`<div class="st" style="background:${p.c}10;border:2px solid ${p.c}"><div class="stn" style="color:${p.c}">${p.n}</div><div class="stl" style="color:${p.c}">${p.nm.split("（")[0]}<br>${p.u}単位</div></div>`;});
 h+=`</div>`;
-
-h+=`<div style="background:#fef2f2;border:2px solid #dc2626;border-radius:10px;padding:8px;margin-bottom:8px;font-size:12px"><strong>採点は2週間〜最大1ヶ月</strong><div style="margin-top:4px;font-size:11px">順序制約科目（A合格→B解禁）は早めに課題Aを出すこと。<br>郵送はORのみ（I期）。他はLMS提出。</div></div>`;
-
-h+=`<div style="background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:8px;margin-bottom:8px;font-size:12px;text-align:center"><strong>23科目46単位で卒業（必要44単位→2単位バッファ）</strong></div>`;
-
+h+=`<div style="background:#fef2f2;border:2px solid #dc2626;border-radius:10px;padding:8px;margin-bottom:8px;font-size:12px"><strong>採点は2週間〜最大1ヶ月</strong><div style="margin-top:4px;font-size:11px">順序制約（A合格→B解禁）は早めにAを出す。I期郵送はORのみ。</div></div>`;
+h+=`<div style="background:#f0fdf4;border:2px solid #16a34a;border-radius:10px;padding:8px;margin-bottom:8px;font-size:12px;text-align:center"><strong>23科目46単位で卒業（必要44→2単位バッファ）</strong></div>`;
 h+=`<div style="font-size:12px;font-weight:700;margin-bottom:4px">全締切</div>`;
 DL.forEach(d=>{const dy=dTo(d.d),pa=dy<=0;
 h+=`<div class="dlr ${pa?"p":""}"><div style="width:36px;font-weight:800;font-size:${pa?11:14}px;color:${d.c};text-align:right">${pa?"済":dy+"日"}</div><div><div style="font-size:12px;font-weight:600">${d.l}</div><div style="font-size:10px;color:#94a3b8">${d.d}</div></div></div>`;});
 }
 
+// === 期別 ===
 if(vw==="period"){
 PD.forEach(p=>{
+const dlD=dTo(p.dl),exD=dTo(p.exd);
 const op=os["p"+p.id]!==false;
-h+=`<div class="cd" style="border-color:${p.c}40"><div class="cdh" onclick="ts('p${p.id}')"><div><h3 style="color:${p.c}">${p.nm}</h3><div style="font-size:11px;color:#64748b">全完了〆切: ${p.dl}</div></div><div style="text-align:right"><div style="font-weight:800;color:${p.c}">${p.n}科目 ${p.u}単位</div><span style="font-size:12px">${op?"▼":"▶"}</span></div></div>`;
+h+=`<div class="cd" style="border-color:${p.c}40"><div class="cdh" onclick="ts('p${p.id}')"><div><h3 style="color:${p.c}">${p.nm}</h3><div style="font-size:11px;color:#64748b">${p.tm.avg} | ${p.tm.wk}</div></div><div style="text-align:right"><div class="drem" style="color:${p.c}">${dlD>0?dlD+"日":"済"}</div><div style="font-size:10px;color:var(--sub)">〆切${p.dl.slice(5)}</div></div></div>`;
 h+=`<div class="cdb ${op?"op":""}">`;
-if(p.m.length){h+=`<div style="font-weight:700;font-size:11px;color:#2563eb;margin-bottom:3px">M科目（${p.m.length}）— ${p.dl}までに全課題完了</div>`;
-p.m.forEach(c=>{h+=`<div class="sb sm"><div><strong>${c[0]}</strong><div style="font-size:10px;color:#64748b">${c[2]}</div></div><div style="text-align:right;font-size:10px;color:#64748b">${c[1]}<br>${c[3]}</div></div>`;});}
-if(p.t.length){h+=`<div style="font-weight:700;font-size:11px;color:#f59e0b;margin:6px 0 3px">T科目（${p.t.length}）— ${p.dl}までにレポート必着</div>`;
-p.t.forEach(c=>{h+=`<div class="sb st2"><div><strong>${c[0]}</strong><div style="font-size:10px;color:#64748b">${c[2]}</div></div><div style="text-align:right;font-size:10px;color:#64748b">${c[1]}<br>${c[3]}</div></div>`;});}
-h+=`<div style="font-size:11px;color:#64748b;margin-top:6px;padding:6px;background:#f8fafc;border-radius:6px">${p.tm}</div>`;
+h+=`<div style="display:flex;gap:8px;margin-bottom:8px;font-size:11px"><div style="flex:1;background:#f8fafc;border-radius:6px;padding:6px;text-align:center"><strong>M×${p.tm.mN}</strong> 各25h</div><div style="flex:1;background:#f8fafc;border-radius:6px;padding:6px;text-align:center"><strong>T×${p.tm.tN}</strong> 各30-45h</div><div style="flex:1;background:#f8fafc;border-radius:6px;padding:6px;text-align:center">試験 <strong>${exD>0?exD+"日後":"済"}</strong></div></div>`;
+p.subj.forEach(s=>{
+const k="pd-"+p.id+"-"+s.nm, d=!!ck[k];
+const [pl,pcl]=priL[s.pri];
+const bg=s.tp==="M"?"#eff6ff":"#fefce8";
+h+=`<div class="sb" style="background:${bg};cursor:pointer" onclick="tg('${k}')"><div style="display:flex;gap:7px;align-items:center;flex:1;min-width:0"><div class="cb ${d?"ck":""}" style="width:16px;height:16px">${d?"✓":""}</div><div style="min-width:0"><div style="font-weight:600;font-size:12px;${d?"color:#94a3b8;text-decoration:line-through":""}">${s.nm}</div><div style="font-size:10px;color:#64748b">${s.note}</div></div></div><div style="text-align:right;flex-shrink:0"><span class="prio ${pcl}">${pl}</span><div style="font-size:10px;color:#94a3b8;margin-top:2px">${s.slot} | ${s.h}</div></div></div>`;
+});
+h+=`<div style="font-size:11px;color:#64748b;margin-top:6px;padding:6px;background:#f8fafc;border-radius:6px">必要時間: ${p.tm.min} 〜 ${p.tm.max}</div>`;
 h+=`<div style="font-size:12px;font-weight:700;margin-top:8px;margin-bottom:4px">試験科目</div>`;
-p.ex.forEach(e=>{h+=`<div style="font-size:12px;padding:2px 0">${e}</div>`;});
+p.ex.forEach(e=>{
+if(e.startsWith("＋")){h+=`<div style="font-size:12px;padding:2px 0;color:#64748b;font-style:italic">${e}</div>`}
+else{h+=`<div style="font-size:12px;padding:2px 0">${e}</div>`}});
 h+=`</div></div>`;});
 }
 
+// === 試験 ===
 if(vw==="exam"){
 PD.forEach(p=>{
 h+=`<div class="cd"><div class="cdh" style="background:${p.c};color:#fff"><h3>${p.nm}</h3></div><div class="cdb op"><table class="tbl"><tr><th>日程</th><th>科目</th></tr>`;
@@ -404,37 +274,27 @@ p.ex.forEach(e=>{
 if(e.startsWith("＋")){h+=`<tr><td colspan="2" style="color:#64748b;font-style:italic">${e}</td></tr>`}
 else{const pts=e.split(" ");h+=`<tr><td style="white-space:nowrap;font-size:10px">${pts.slice(0,2).join(" ")}</td><td style="font-weight:600">${pts.slice(2).join(" ")}</td></tr>`}});
 h+=`</table></div></div>`;});
-
-h+=`<div class="w"><strong>競合まとめ（I↔III期、II↔IV期で分散済み）</strong><div style="margin-top:6px;font-size:11px">`;
-[["B1限","政治経済(I) / 画像処理(III)"],
-["A3限","人間関係論(I) / 自動制御論(III)"],
-["A2限","ディジタル信号処理(III) ← 競合なし"],
-["B3限","社会学(I) / CA(III)"],
-["B4限","健康支援学(I) / 幾何学(III)"],
-["D1限","経済学(II) / ロボティクス(IV)"],
-["C3限","数理統計学(II) / 情報システム(IV)"],
-["C1限","情報社会論(IV) ← 競合なし"]
-].forEach(c=>{h+=`<div style="margin:2px 0"><strong>${c[0]}:</strong> ${c[1]}</div>`;});
-h+=`</div></div>`;
+h+=`<div class="w"><strong>競合（I↔III / II↔IV で分散済み）</strong><div style="margin-top:6px;font-size:11px">`;
+[["B1","政治経済(I) / 画像処理(III)"],["A3","人間関係論(I) / 自動制御論(III)"],["B3","社会学(I) / CA(III)"],["B4","健康支援学(I) / 幾何学(III)"],["D1","経済学(II) / ロボティクス(IV)"],["C3","数理統計学(II) / 情報システム(IV)"]].forEach(c=>{h+=`<div style="margin:2px 0"><strong>${c[0]}限:</strong> ${c[1]}</div>`;});
+h+=`<div style="margin:4px 0;color:#16a34a"><strong>競合なし:</strong> 日本史(III B2) / 信号処理(III A2) / 情社論(IV C1) / 心理学(IV C2)</div></div></div>`;
 }
 
+// === 教材 ===
 if(vw==="books"){
 let tot=0;
-h+=`<div style="padding:4px"><div style="font-size:12px;font-weight:700;margin-bottom:6px">購入必要な教科書</div>`;
-BK.forEach(b=>{const p=parseInt(b[3].replace(/[^0-9]/g,""));if(p)tot+=p;
-h+=`<div class="bk"><div><strong>${b[0]}</strong><div style="color:#64748b">${b[1]}</div>${b[2]!=="LMS確認"?`<div style="color:#94a3b8;font-size:10px">ISBN:${b[2]}</div>`:""}</div><div style="font-weight:700;color:#b45309;white-space:nowrap">${b[3]}円</div></div>`;});
-h+=`<div style="text-align:center;font-weight:700;padding:8px;background:#fef3c7;border-radius:8px;margin-top:6px;font-size:12px">概算: 約${tot.toLocaleString()}円</div>`;
-h+=`<div style="margin-top:8px;font-size:11px;color:#64748b"><strong>教科書不要:</strong> 現代世界の政治経済 / 経済学 / 幾何学 / 生物学1 / DS・AI入門 / 情報社会論 / OR</div></div>`;
-}
-
-if(vw==="rule"){
-h+=`<div class="rl" style="background:#f0fdf4;border:2px solid #16a34a"><div style="font-weight:700;color:#16a34a;margin-bottom:4px">毎週ルーティン（週19h）</div><strong>月火木 各3h:</strong> M科目課題 or レポート執筆<br><strong>水金 各2h:</strong> M科目 or 教科書読み<br><strong>土 4h:</strong> レポート集中 or 試験対策<br><strong>日 2h:</strong> 復習・振り返り・調整<br><br><strong style="color:#dc2626">★日曜夜：走行中のM科目の提出漏れチェック！</strong></div>`;
-
-h+=`<div class="rl" style="background:#fef2f2;border:2px solid #dc2626"><div style="font-weight:700;color:#dc2626;margin-bottom:4px">絶対ルール</div>• M科目の小テスト/課題を飛ばさない（試験資格喪失）<br>• M科目も各期〆切までに全完了が必要<br>• 試験でAI使用は絶対NG（全科目無効＋懲戒処分）<br>• 順序制約科目は課題Aを即提出（採点に2週〜1ヶ月）<br>• OR課題Bは郵送→必着日の5日前に投函<br>• 形式要件：指定用紙/提出票/課題糊付け/14pt以上/参考文献/返信封筒切手</div>`;
-
-h+=`<div class="rl" style="background:#eff6ff;border:2px solid #2563eb"><div style="font-weight:700;color:#2563eb;margin-bottom:4px">AI活用ルール</div>• レポート：教科書読む→メモ→構成AI相談→自分で執筆→AI添削→自分の言葉で仕上げ<br>• 数学：自分で解く→「合ってる？」とAI確認<br>• 不合格レポート：AIでフィードバック分析→修正ポイント特定<br>• <strong>試験本番ではAIは絶対使わない</strong></div>`;
-
-h+=`<div class="rl" style="background:#faf5ff;border:2px solid #7c3aed"><div style="font-weight:700;color:#7c3aed;margin-bottom:4px">I期T科目の提出方法（確認済）</div><strong>LMS提出:</strong> 健康支援学(A+B同時可) / 人間関係論(テスト2個→A→B) / 現代日本史(A→B) / 社会学(A→B)<br><strong>郵送:</strong> OR(A→B)<br><br>※II期以降はLMS公開後に各科目の指示を確認</div>`;
+h+=`<div style="padding:4px">`;
+[1,2,3,4].forEach(pid=>{
+const pnm=PD.find(p=>p.id===pid).nm;
+const pBooks=BK.filter(b=>b.pd===pid);
+if(!pBooks.length)return;
+h+=`<div style="font-size:12px;font-weight:700;margin:8px 0 4px;color:${PD.find(p=>p.id===pid).c}">${pnm}</div>`;
+pBooks.forEach(b=>{
+const p=parseInt(b.pr.replace(/[^0-9]/g,""));if(p)tot+=p;
+const k="bk-"+b.nm,d=!!ck[k];
+h+=`<div class="bk" style="cursor:pointer" onclick="tg('${k}')"><div style="display:flex;gap:7px;align-items:flex-start;flex:1;min-width:0"><div class="cb ${d?"ck":""}" style="width:16px;height:16px;flex-shrink:0">${d?"✓":""}</div><div style="min-width:0"><strong style="${d?"color:#94a3b8;text-decoration:line-through":""}">${b.nm}</strong><div style="color:#64748b;font-size:10px">${b.bk}</div>${b.isbn!=="LMS確認"?`<div style="color:#94a3b8;font-size:9px">ISBN:${b.isbn}</div>`:""}</div></div><div style="font-weight:700;color:#b45309;white-space:nowrap">${b.pr}円</div></div>`;});
+});
+h+=`<div style="text-align:center;font-weight:700;padding:8px;background:#fef3c7;border-radius:8px;margin-top:8px;font-size:12px">概算: 約${tot.toLocaleString()}円</div>`;
+h+=`<div style="margin-top:8px;font-size:11px;color:#64748b"><strong>教科書不要:</strong> ${BK_FREE.join(" / ")}</div></div>`;
 }
 
 h+=`<div class="ft">2027.3.21 卒業式まであと${dTo("2027-03-21")}日</div>`;
